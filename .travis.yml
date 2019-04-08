@@ -5,7 +5,7 @@ services:
 
 env:
   - DOCKER_COMPOSE_VERSION=1.14.0
-  - CODECOV_TOKEN=4bff3c17-2144-4bfc-ad7b-3dad22695975
+  - CODECOV_TOKEN="4bff3c17-2144-4bfc-ad7b-3dad22695975"
 
 before_install:
   - sudo rm /usr/local/bin/docker-compose
