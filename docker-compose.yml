@@ -1,11 +1,23 @@
 version: '3'
 
 services:
-  api_gateway:
-    container_name: api_gateway
+  db:
+    container_name: db
+    restart: always
+    image: postgres
+    environment:
+      - POSTGRES_NAME=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    ports:
+      - "5432:5432"
+  api_test:
+    container_name: api_test
     build: .
     command: python3 manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/code
     ports:
       - "8000:8000"
+    depends_on:
+      - db
